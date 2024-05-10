@@ -4,4 +4,4 @@ Final project for Advanced Programming
 Replace this with a daily detail of what you have learned/done.
 This detail should be well formatted, google how-to-create github wiki for more information
 
-Contract: [https://docs.google.com/document/d/1QvVXjFIFpICowNTuNMfaZwfNxT5G-ArFWCBzINPVaP4/edit?usp=sharing](url)
+Contract: [https://docs.google.com/document/d/1QvVXjFIFpICowNTuNMfaZwfNxT5G-ArFWCBzINPVaP4/edit?usp=sharing](https://docs.google.com/document/d/1QvVXjFIFpICowNTuNMfaZwfNxT5G-ArFWCBzINPVaP4/edit?usp=sharing)
