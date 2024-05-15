@@ -25,8 +25,11 @@ for p in range (len(salaries)):
     if(players[p].text != ""):
         salaries_list.append(salaries[p].text)
 
-df = pd.DataFrame(columns=['Player','Salary'])
+df = pd.DataFrame(columns=['Year','Player','Salary'])
 data_tuples = list(zip(players_list[1:],salaries_list[1:]))
+temp_df = pd.DataFrame(data_tuples, columns=['Player','Salary'])
+temp_df['Year'] = 2023
+df = pd.concat([df, temp_df])
 
 print(df)
 driver.close()
