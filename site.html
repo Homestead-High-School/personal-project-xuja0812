@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <title>Student Council</title>
+            <meta charset="UTF-8"/>
+            <link rel="stylesheet" href="style.css"/>
+            <link rel="shortcut icon" href="images/Student Council Icon.png" type="image/x-icon"/>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;800&display=swap" rel="stylesheet">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <script src="index.js"></script>
+    </head>
+    <body>
+        <div class="">
+            <header>
+                <img src="images/Student Council Background.png" alt="sample image" class="background-image">
+                <h3 class="title">Homestead Student Council</h3>
+                <p class="title-description">
+                    Join us to get involved at Homestead.
+                </p>
+            </header>
+            <nav class="nav-bar" id="top-nav">
+                <ul>
+                    <li class="first-link"><a href="index.html">
+                        <i class="fa fa-home"></i>
+                    </a></li>
+                    <li><a href="events.html" class="link">EVENTS</a></li>
+                    <li><a href="resources.html" class="link">RESOURCES</a></li>
+                    <li><a href="https://www.homesteadhs.club/#" target="_blank" rel="noopener noreferrer" class="link">BACK TO DIRECTORY</a></li>
+                    <li class="last-link"><a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                    </a></li>
+                </ul>
+            </nav>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="flow">
+            <div class="overview">
+                <!-- <div class="grid"> -->
+                    <div class="flow">
+                        <h3 class="header">
+                            What is Student Council?
+                        </h3>
+                        <div class="description">
+                            <p>
+                                The Student Council is a group of students who plan and organize Homestead's
+                                many events and fundraisers. While there's a main board (President, Vice
+                                President, Secretary, Treasurer, Communications Coordinator), anyone
+                                can join to be a general member.
+                            </p>
+                        </div>
+                    </div>
+                    <!-- <div class="flow">
+                        <div class="image">
+                            <img src="images/mathteam_nsc_varsity.jpg" alt="sample image">
+                        </div>
+                    </div> -->
+                <!-- </div> -->
+            </div>
+            </div>
+
+            <div class="space"></div>
+
+            <div class="flow">
+            <div class="overview">
+                <!-- <div class="grid"> -->
+                    <div class="flow">
+                        <h3 class="header">
+                            How do I join?
+                        </h3>
+                        <div class="description">
+                            <p>
+                                New members just need to attend a Student Council meeting to join - there's no fee!
+                            </p>
+                        </div>
+                    </div>
+                <!-- </div> -->
+            </div>
+            </div>
+            <div class="space"></div>
+
+            <div class="contact">
+                <div class="flex">
+                    <div class="header2">
+                        <h3>
+                            Contact
+                         </h3>
+                    </div>
+                </div>
+                <div class="flex">
+                    <div class="contact-info">
+                        For more information, contact Amelia Horwitz at <a class="email-link" href="mailto:horwiam@students.mtsd.k12.wi.us">horwiam@students.mtsd.k12.wi.us</a>,
+                        Mrs. Pfaff at <a class="email-link" href="mailto:dpfaff@mtsd.k12.wi.us">dpfaff@mtsd.k12.wi.us</a>, or Mrs. Ackmann at <a class="email-link" href="mailto:aackmann@mtsd.k12.wi.us
+                        ">aackmann@mtsd.k12.wi.us</a>.
+                    </div>
+                </div>
+            </div>
+
+            <footer>
+                <div class="grid-footer">
+                    <div class="left-image">
+                        <a href="index.html"><img class="footer-image" src="images/Student Council Footer Icon.png"></a>
+                    </div>
+                    <div class="left">
+                        <p>Have any website design suggestions? Contact <a class="footer-link" href="mailto:hhsclubwebsites@gmail.com">hhsclubwebsites@gmail.com</a>.</p>
+                        <div class="icons">
+                            <p><a class="footer-link" href="https://icons8.com/icon/39132/student-center" target="_blank" rel="noopener noreferrer">Student Center</a> icon by <a class="footer-link" href="https://icons8.com/" target="_blank" rel="noopener noreferrer">Icons8</a>.</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <!-- <div class="link-list"> -->
+                            <ul class="link-list">
+                                <li><a href="index.html" class="footer-list-link">HOME</a></li>
+                                <div class="footer-space"></div>
+                                <li><a href="events.html" class="footer-list-link">EVENTS</a></li>
+                                <div class="footer-space"></div>
+                                <li><a href="resources.html" class="footer-list-link">RESOURCES</a></li>
+                                <div class="footer-space"></div>
+                                <li><a href="https://www.homesteadhs.club/#" target="_blank" rel="noopener noreferrer" class="footer-list-link">BACK TO DIRECTORY</a></li>
+                            </ul>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </footer>
+
+            <script>
+                var x = document.getElementById("top-nav");
+                console.log(x);
+                console.log(x.className);
+                document.addEventListener('click', event => {
+                    if(event.target.closest('#top-nav') === null){
+                        x.className = "nav-bar";
+                    };
+                })
+            </script>
+
+        </div>
+    </body>
+</html>
