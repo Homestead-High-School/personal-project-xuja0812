@@ -53,6 +53,29 @@ def openReply(driver):
     else:
         pass
 
+def openSeeMore(driver):
+    seeMores = driver.find_elements(By.XPATH, "XPATH")
+    if(len(seeMores) > 0):
+        count = 0
+        for i in seeMores:
+            actions = ActionChains(driver)
+            try:
+                actions.move_to_element(i).click().perform()
+                count+=1
+            except:
+                try:
+                    driver.execute_script("arguments[0].click();", i) # MANIPULATES DOM IN JS INSTEAD OF ACTIONS
+                    count+=1
+                except:
+                    continue
+        time.sleep(1)
+    else:
+        pass
+
+def getBack(driver):
+    if not driver.current_url.endswith('reviews'):
+        driver.back()
+
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--headless')
 chrome_options.add_argument('--no-sandbox')
@@ -98,7 +121,7 @@ while(switch):
         openReply(driver)
         getBack(driver)
     
-    openSeeMore(driver) # SAME IMPLEMENTATION WITH DIFFERENT XPATH
+    openSeeMore(driver) 
     getBack(driver)
 
     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
