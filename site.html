@@ -13,28 +13,23 @@
             <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
             <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <script src="index.js"></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+            <script data-main="scripts/main.js" src="scripts/require.js"></script>
     </head>
     <body>
         <div class="">
-            <header>
-                <img src="images/Student Council Background.png" alt="sample image" class="background-image">
-                <h3 class="title">Selenium Project</h3>
-                <p class="title-description">
-                </p>
-            </header>
             <nav class="nav-bar" id="top-nav">
                 <ul>
-                    <li class="first-link"><a href="index.html">
-                        <i class="fa fa-home"></i>
-                    </a></li>
-                    <li><a href="events.html" class="link">REVIEWS</a></li>
-                    <li><a href="resources.html" class="link">PRODUCT SENTIMENT</a></li>
+                    <li><a href="product.html" class="link">SENTIMENT</a></li>
                     <li class="last-link"><a href="javascript:void(0);" class="icon" onclick="myFunction()">
                         <i class="fa fa-bars"></i>
                     </a></li>
                 </ul>
             </nav>
+            <div class="space"></div>
+            <div class="space"></div>
             <div class="space"></div>
             <div class="space"></div>
             <div class="flow">
@@ -47,38 +42,24 @@
                             <div class="search">
                                 <div class="flex column">
                                     <label class="searchbar-label" for="search">Email:</label>
-                                    <input id="searchbar" onkeyup="search_clubs()" type="text" name="search" placeholder="Email">
+                                    <input type="text" name="search" placeholder="Email" id="email">
                                 </div>
                             </div>
                             <div class="search">
                                 <div class="flex column">
                                     <label class="searchbar-label" for="search">Password:</label>
-                                    <input id="searchbar" onkeyup="search_clubs()" type="text" name="search" placeholder="Password">
+                                    <input type="password" name="search" placeholder="Password" id="password">
+                                </div>
+                            </div>
+                            <div class="submit-button">
+                                <div class="flex column">
+                                    <div class="submit-text" onclick="submit()">SUBMIT</div>
                                 </div>
                             </div>
                         </div>
                     </div>
             </div>
             </div>
-
-            <div class="space"></div>
-
-            <div class="flow">
-            </div>
-            <div class="space"></div>
-             
-
-            <script>
-                var x = document.getElementById("top-nav");
-                console.log(x);
-                console.log(x.className);
-                document.addEventListener('click', event => {
-                    if(event.target.closest('#top-nav') === null){
-                        x.className = "nav-bar";
-                    };
-                })
-            </script>
-
         </div>
     </body>
 </html>
