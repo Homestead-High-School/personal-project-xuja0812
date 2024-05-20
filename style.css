@@ -1,11 +1,27 @@
-@font-face {
-    font-family: 'Poppins';
-    font-style: normal;
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
     font-weight: 400;
-    font-display: swap;
-    src: url(https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJfecg.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    font-style: normal;
 }
+  
+.space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+  
+.space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+}
+  
+.space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+}
+  
 
 *{
     box-sizing: border-box;
@@ -13,18 +29,56 @@
     padding: 0;
     overflow-x: hidden;
     max-width: 100%;
+    background-color: rgb(175, 175, 243);
 }
 
-#searchbar{
+.submit-button{
+    margin-top: 1rem;
+}
+
+.submit-text{
+    font-weight: 1000;
+    font-size: 1.5rem;
+    padding: 1rem;
+    background-color: rgb(79, 79, 177);
+    color: rgb(204, 204, 231);
+    transition: all 300ms;
+    border-radius: 25px;
+}
+
+.submit-text:hover{
+    cursor: pointer;
+    background-color:rgb(46, 46, 111)
+}
+
+#email{
     border-radius: 30px;
     margin-top: 2rem;
     height: 4rem;
-    font-family: "Poppins";
+    font-family: "Space Mono";
     padding: 1rem;
     font-size: clamp(0.5em, 4vw, 1rem);
     box-shadow: 0 0 2px black;
     margin-bottom: 0.25rem;
     width: 40rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: white;
+}
+
+#password{
+    border-radius: 30px;
+    margin-top: 2rem;
+    height: 4rem;
+    font-family: "Space Mono";
+    padding: 1rem;
+    font-size: clamp(0.5em, 4vw, 1rem);
+    box-shadow: 0 0 2px black;
+    margin-bottom: 0.25rem;
+    width: 40rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    background-color: white;
 }
 
 input[type=text]{
@@ -42,31 +96,22 @@ input[type=text]:focus{
 }
 
 .searchbar-label{
-    font-family: "Poppins";
+    font-family: "Space Mono";
     font-size: clamp(2rem, 4vw, 2.5rem);
     text-align: center;
-    margin-top: 1rem;
-    /* box-shadow: 0rem 5px gray; */
+    margin-top: 0.5rem;
 }
 
 .search{
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
-
-
-/* body{
-    background:rgb(227, 244, 234);
-} */
-
-/* NAVIGATION BAR */
-
 .nav-bar{
     top: 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(93, 12, 12, 0.8);
     position: fixed;
     width: 100%;
     text-align: right;
-    font-family: "Poppins";
+    font-family: "Space Mono";
     box-shadow: 0 0 5px black;
     min-height: 3rem;
     z-index: 14;
@@ -79,13 +124,6 @@ input[type=text]:focus{
     padding-bottom: 0.8rem;
     padding-right: 3rem;
 }
-
-/* .nav-bar .icon{
-    top: 1rem;
-    right: 1rem;
-} */
-
-
 .nav-bar a, .nav-bar .link{
     text-decoration: none;
     color: black;
@@ -93,19 +131,14 @@ input[type=text]:focus{
     transition: all 300ms;
 }
 
-.nav-bar .icon:hover{
-    color: rgb(139, 5, 25);
-    cursor: pointer;
-}
-
 .nav-bar .link{
     transition: all 300ms;
 }
 
 .nav-bar .link:hover{
-    color: rgb(139, 5, 25);
+    color: rgb(97, 40, 130);
     cursor: pointer;
-    box-shadow: 0 0.25rem gray;
+    box-shadow: 0 0.25rem rgb(97, 40, 130);
 }
 
 #top-nav{
@@ -113,13 +146,6 @@ input[type=text]:focus{
 }
 
 /* BACKGROUND IMAGE */
-
-.parallax-wrapper{
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    perspective: 10px;
-}
 
 .title{
     /* font-size: clamp(1.5rem, 4vw + 0.05rem, 8rem); */
@@ -129,7 +155,7 @@ input[type=text]:focus{
     padding: 0;
     text-shadow: 0 0 5px black;
     color: white;
-    font-family: "Poppins";
+    font-family: "Space Mono";
     box-shadow: 0 0.25rem rgb(76, 16, 25);
     min-height: 2rem;
     text-align: center;
@@ -139,7 +165,7 @@ input[type=text]:focus{
 }
 
 .title-description{
-    font-family: "Poppins";
+    font-family: "Space Mono";
     color: white;
     text-align: center;
     padding-top: 2rem;
@@ -147,15 +173,6 @@ input[type=text]:focus{
     font-size: clamp(0.7rem, 4vw, 1.5rem);
     max-width: 70%;
     text-shadow: 0 0 3px black;
-}
-
-.background-image{
-    transform: translateZ(-5px) scale(1.5);
-    position: absolute;
-    height: 100%;
-    width: 90%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 header{
@@ -176,7 +193,7 @@ header{
 /* OVERVIEW */
 
 .overview{
-    font-family: "Poppins";
+    font-family: "Space Mono";
     max-width: 90%;
 }
 
@@ -187,14 +204,6 @@ header{
     text-align: center;
 }
 
-.description{
-    padding: 1.5rem;
-    font-size: clamp(1.5rem, 3vw, 1.5rem);
-    font-family: "Poppins";
-    /* text-align: center;
-    align-content: center;
-    justify-content: center; */
-}
 
 .grid{
     display: grid;
@@ -213,19 +222,6 @@ header{
     text-align: center;
 }
 
-.image{
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    padding-bottom: 2rem;
-    margin-top: 2rem;
-}
-
-.image img{
-    box-shadow: 0 0 10px;
-    width: 70%;
-}
-
 /* HAMBURGER MENU */
 
 .nav-bar .icon{
@@ -240,14 +236,10 @@ header{
     align-items: center;
 }
 
-.contact{
-    background: rgb(178, 177, 177);
-}
-
 .header2{
     text-align: center;
     font-size: clamp(2.5rem, 3vw + 0.05rem, 4rem);
-    font-family: "Poppins";
+    font-family: "Space Mono";
     color: white;
     text-shadow: 0 0 5px black;
     margin-bottom: 2rem;
@@ -260,117 +252,8 @@ header{
     padding-right: 0.5rem;
 }
 
-.contact-info{
-    font-family: "Poppins";
-    color: white;
-    text-align: center;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-    max-width: 80%;
-    /* font-size: clamp(0.5rem, 3vw, 1.3rem); */
-    font-size: clamp(1.2rem, 3vw, 1.5rem);
-    margin-bottom: 4rem;
-}
-
 .space{
     height: 2rem;;
-}
-
-.email-link{
-    color: rgb(109, 108, 108);
-    transition: all 300ms;
-}
-
-.email-link:hover{
-    color:black;
-}
-
-.first-link{
-    float: left;
-    padding-left: 3rem;
-}
-
-.first-link a{
-    font-size: clamp(2rem, 4vw, 2.0rem);
-    transition: all 300ms ease-in-out;
-}
-
-.first-link :hover{
-    color:rgb(109, 108, 108);
-}
-
-.grid-footer{
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    background-color: rgb(139, 5, 25);
-    color: white;
-}
-
-.left{
-    font-family: "Poppins";
-    padding-top: 2rem;
-    padding-left: 0.75rem;
-    padding-bottom: 2rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1rem;
-}
-
-.icons{
-    margin-top: 1rem;
-}
-
-.footer-link{
-    color: white;
-    opacity: 50%;
-    transition: all 300ms;
-    font-family: "Poppins";
-}
-
-.footer-link:hover{
-    opacity: 100%;
-}
-
-.right{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-list-link{
-    color: white;
-    opacity: 50%;
-    transition: all 300ms;
-    font-family: "Poppins";
-    font-size: 1.5rem;
-}
-
-.footer-list-link:hover{
-    opacity: 100%;
-}
-
-.link-list{
-    text-align: center;
-}
-
-.footer-image{
-    border-radius: 15px;
-    width: 200px;
-}
-
-.left-image{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-space{
-    height: 2rem;
 }
 
 /* MEDIA QUERIES */
@@ -382,9 +265,6 @@ header{
 
     .nav-bar .link {
         display: none;
-    }
-
-    .nav-bar{
     }
 
     .nav-bar .icon{
@@ -452,22 +332,5 @@ header{
 
     .nav-bar li{
         padding-bottom: 0.4rem;
-    }
-
-    .background-image{
-        height: 75%;
-        width: auto;
-    }
-
-    .grid-footer{
-        display: block;
-    }
-
-    .footer-space{
-        height: 0;
-    }
-
-    .footer-image{
-        width: 150px;
     }
 }
