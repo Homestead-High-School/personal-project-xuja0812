@@ -1,6 +1,7 @@
 import pandas as pd
 import sklearn
 import os
+from text_processor import process
 
 # CREATES PATHS TO INPUT AND OUTPUT FILES IF THEY DO NOT EXIST ALREADY
 input_path = 'input'
