@@ -5,6 +5,8 @@ from bs4 import BeautifulSoup
 import re
 import pandas as pd
 import numpy as np
+from text_processor import process
+from fb_scraper import scrape
 
 def sentiment_score(review):
     tokens = tokenizer.encode(review, return_tensors='pt')
@@ -24,16 +26,20 @@ torch.argmax(result.logits) + 1
 
 # SCRAPE THE DATA
 
-    # REPLACE THIS WITH XPATH
+df = scrape()
 
-r = requests.get('URL')
-soup = BeautifulSoup(r.text, 'html.parser')
-regex = re.compile('.*comment.*')
-results = soup.find_all('p',{'class':regex})
-reviews = [result.text for result in results]
+#     # REPLACE THIS WITH XPATH
+
+# r = requests.get('URL')
+# soup = BeautifulSoup(r.text, 'html.parser')
+# regex = re.compile('.*comment.*')
+# results = soup.find_all('p',{'class':regex})
+# reviews = [result.text for result in results]
+
+#     # PREPROCESS THE DATA
 
 # TURN INTO DATAFRAME
-df = pd.DataFrame(np.array(reviews), columns=['review'])
-df['review'].iloc[0]
+# df = pd.DataFrame(np.array(reviews), columns=['review'])
+# df['review'].iloc[0]
 
 df['sentiment'] = df['review'].apply(lambda x: sentiment_score(x[:512]))
