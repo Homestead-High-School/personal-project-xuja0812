@@ -33,7 +33,7 @@ def map_to_dictionary(input_ids, attention_masks, token_type_ids, label):
         "input_ids":input_ids,
         "attention_masks":attention_masks,
         "token_type_ids":token_type_ids,
-    }, label
+    }, label 
 
 def encode(X, y):
     input_ids_list = []
