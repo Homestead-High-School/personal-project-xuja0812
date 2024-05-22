@@ -13,6 +13,7 @@ import plotly.graph_objects as go
 from wordcloud import WordCloud, STOPWORDS
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
+from text_processor import process
 
 # LOAD THE MODEL IN 
 bert_model = TFBertForSequenceClassification.from_pretrained("PATH")
@@ -46,4 +47,25 @@ def encode(X, y):
         token_type_ids_list.append()
         attention_mask_list.append()
         label_list.append([label])
+    return tf.data.Dataset.from_tensor_slices((input_ids_list, attention_mask_list, token_type_ids_list, label_list)).map(map_to_dictionary)
 
+# TRAIN THE DATA
+X_train, X_validation, y_train, y_validation = train_test_split(X_train, y_train, test_size=0.2, random_state=0)
+ds_train_encoded = encode(process(X_train), y_train).shuffle(100).batch(32).repeat(2)
+ds_val_encoded = encode(process(X_validation), y_validation).batch(32)
+
+# TEST THE DATA
+ds_test_encoded = encode(process(X_test), y_test).batch(32)
+
+# COMPILE THE MODEL
+learning_rate = 3e-5
+optimizer = tf.keras.optimizers.Adam(learning_rate=learning_rate, epsilon=1e-08)
+loss = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+metric = tf.keras.metrics.SparseCategoricalAccuracy('accuracy')
+bert_model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
+
+# TRAIN AND EVALUATE
+bert_model.fit(ds_train_encoded, epochs=2, validation_data=ds_val_encoded)
+
+loss, acc = bert_model.evaluate(ds_test_encoded, verbose = 0)
+print("accuracy: {:5.2f}%".format(100 * acc))
