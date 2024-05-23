@@ -15,15 +15,7 @@ function submit(){
   let email = emailElement.value;
   let passwordElement = document.getElementById('password');
   let password = passwordElement.value;
-  require(['requirejs'], function(requirejs){
-    requirejs = require('requirejs');
-    let name = 'fs';
-    require([name], function(fs){
-      fs = require(name);
-      // CREATE A CONDITIONAL HERE THAT SAYS TO WRITE THE FILE ONLY IF IT DOES NOT EXIST YET
-      fs.writeFile('fb_credentials.txt', email + "\n" + password);
-    })
-  })
+  requirejs(['app/main']);
 }
 
 function myFunction(){
