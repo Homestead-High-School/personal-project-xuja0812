@@ -11,35 +11,18 @@ from fb_scraper import scrape
 def sentiment_score(review):
     tokens = tokenizer.encode(review, return_tensors='pt')
     result = model(tokens)
-    return torch.argmax(result.logits) + 1
+    return float(torch.argmax(result.logits)) + 1
 
 # CREATE TOKENIZER AND MODEL FROM PRETRAINED SOURCES
-tokenizer = AutoTokenizer.from_pretrained('URL')
-model = AutoModelForSequenceClassification.from_pretrained('URL')
-
-# ENCODE (EXTRACT SENTIMENT)
-tokens = tokenizer.encode('I hated this, absolutely the worst', return_tensors='pt')
-
-# PASS ENCODED STRING TO MODEL
-result = model(tokens)
-torch.argmax(result.logits) + 1
+tokenizer = AutoTokenizer.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
+model = AutoModelForSequenceClassification.from_pretrained('nlptown/bert-base-multilingual-uncased-sentiment')
 
 # SCRAPE THE DATA
-
 df = scrape()
 
-#     # REPLACE THIS WITH XPATH
+pd.set_option('display.max_columns', 7)
+df['sentiment'] = df['texts'].apply(lambda x: sentiment_score(x[:512]))
 
-# r = requests.get('URL')
-# soup = BeautifulSoup(r.text, 'html.parser')
-# regex = re.compile('.*comment.*')
-# results = soup.find_all('p',{'class':regex})
-# reviews = [result.text for result in results]
-
-#     # PREPROCESS THE DATA
-
-# TURN INTO DATAFRAME
-# df = pd.DataFrame(np.array(reviews), columns=['review'])
-# df['review'].iloc[0]
-
-df['sentiment'] = df['review'].apply(lambda x: sentiment_score(x[:512]))
+with open(f'/Users/jasmi/Downloads/personal-project-xuja0812-3/model/FINAL_DATA.txt',"w", encoding="utf-8") as data_file:
+    dfAsString = df.to_string(header=False, index=False)
+    data_file.write(dfAsString)

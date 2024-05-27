@@ -16,7 +16,7 @@
             <link rel="preconnect" href="https://fonts.googleapis.com">
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-            <script data-main="scripts/main.js" src="scripts/require.js"></script>
+            <script src="app.js"></script>
     </head>
     <body>
         <div class="">
@@ -41,14 +41,17 @@
                         <div class="description">
                             <div class="search">
                                 <div class="flex column">
-                                    <label class="searchbar-label" for="search">FaceBook Username</label>
-                                    <input type="text" name="search" placeholder="Username" id="email">
+                                    <label class="searchbar-label" for="search">FaceBook URL</label>
+                                    <input type="text" name="search" placeholder="URL" id="email">
                                 </div>
                             </div>
                             <div class="submit-button">
                                 <div class="flex column">
-                                    <div class="submit-text" onclick="submit_user()">SUBMIT</div>
+                                    <div class="submit-text" onclick="display()">SUBMIT</div>
                                 </div>
+                            </div>
+                            <div id="list">
+
                             </div>
                         </div>
                     </div>

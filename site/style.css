@@ -21,7 +21,35 @@
     font-weight: 700;
     font-style: italic;
 }
-  
+
+.full-review{
+    margin-top: 5%;
+    background-color: white;
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+.name{
+    font-size: 2rem;
+}
+
+.rec{
+    text-decoration: underline;
+}
+
+.rev{
+    margin-top: 5%;
+}
+
+.rating{
+    margin-top: 5%;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+body {
+    background-color: rgb(175, 175, 243);
+}
 
 *{
     box-sizing: border-box;
@@ -29,7 +57,7 @@
     padding: 0;
     overflow-x: hidden;
     max-width: 100%;
-    background-color: rgb(175, 175, 243);
+    /* background-color: rgb(175, 175, 243); */
 }
 
 .submit-button{
@@ -107,7 +135,7 @@ input[type=text]:focus{
 }
 .nav-bar{
     top: 0;
-    background-color: rgba(93, 12, 12, 0.8);
+    background-color: rgba(223, 223, 251, 0.8);;
     position: fixed;
     width: 100%;
     text-align: right;
