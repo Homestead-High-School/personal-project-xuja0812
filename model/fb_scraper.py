@@ -41,6 +41,7 @@ def archive(driver, reviewList):
     time.sleep(10)
 
     for index, l in enumerate(reviewList):
+        print("hello there")
         if(index % 10 == 0):
             driver.execute_script("arguments[0].scrollIntoView();", reviewList[0]) if index < 15 else driver.execute_script("arguments[0].scrollIntoView();", reviewList[index-15])
         time.sleep(1)
@@ -61,13 +62,14 @@ def archive(driver, reviewList):
                 driver.execute_script("arguments[0].scrollIntoView();", reviewList[-1])
                 driver.execute_script("arguments[0].scrollIntoView();", reviewList[index+r*3])
                 time.sleep(3)
-                with open(f'/Users/jasmi/Downloads/personal-project-xuja0812-3/Model/{str(index)}_{r}.html',"w", encoding="utf-8") as file:
+                with open(f'/Users/jasmi/Downloads/personal-project-xuja0812-3/model/{str(index)}_{r}.html',"w", encoding="utf-8") as file:
                     source_data = driver.page_source
                     bs_data = bs(source_data, 'html.parser')
                     file.write(str(bs_data.prettify()))
+                    print("written:",index)
                     return index, r
 
-def scrape():
+def scrape(url):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
@@ -92,7 +94,8 @@ def scrape():
 
     # RETRIEVES ANY PAGE ONCE THE USER IS LOGGED IN
     time.sleep(5)
-    driver.get('https://www.facebook.com/McDonalds/reviews')
+    # driver.get('https://www.facebook.com/McDonalds/reviews')
+    driver.get(url)
     time.sleep(5)
 
     # UNFOLDS ALL THE ELEMNENTS ON THE PAGE BY OPENING REPLIES AND COMMENTS AND SCROLLING TO THE END OF THE PAGE
@@ -105,6 +108,8 @@ def scrape():
     r = 0
 
     while(switch):
+
+        print("hello")
         
         openSeeMore(driver) 
         getBack(driver)
@@ -114,6 +119,7 @@ def scrape():
 
         reviewList = driver.find_elements(By.XPATH, '//div[@class="x1yztbdb x1n2onr6 xh8yej3 x1ja2u2z"]')
         numReviews = len(reviewList)
+        print("reviews:",numReviews)
         old_numReviews = numReviews
 
         # TERMINATE

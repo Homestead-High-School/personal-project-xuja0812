@@ -20,7 +20,7 @@ function submit(){
 }
 
 function display(){
-  
+
   // FIRST CALL THE NEW_MODEL PYTHON FILE
   const fileUrl = 'FINAL_DATA.txt';
   fetch(fileUrl).then(r => r.text()).then((t) => {
@@ -65,6 +65,48 @@ function display(){
       element.appendChild(all);
     }
   });
+}
+
+function display2(t){
+  const arr = t.split("\n");
+    let n = arr.length;
+    for(let j = 0; j<n; j++){
+      let text = arr[j];
+      let rec = "";
+      let review = text.split(/[" "]+/);
+      let index = 0;
+      while(review[index] != 'recommend' && review[index] != 'recommends'){
+        rec += review[index] + " ";
+        index++;
+      }
+      rec += review[index];
+      let name = review[index + 1];
+      let rev = "";
+      for(let i = index + 2; i<review.length-1; i++){
+        rev += review[i] + " ";
+      }
+      let rating = review[review.length-1];
+      let all = document.createElement("div");
+      all.className = "full-review";
+      let name_e = document.createElement("div");
+      name_e.innerText = name;
+      name_e.className = "name";
+      let rec_e = document.createElement("div");
+      rec_e.innerText = rec;
+      rec_e.className = "rec";
+      let rev_e = document.createElement("div");
+      rev_e.innerText = rev;
+      rev_e.className = "rev";
+      let rating_e = document.createElement("div");
+      rating_e.innerText = rating;
+      rating_e.className = "rating";
+      all.appendChild(name_e);
+      all.appendChild(rec_e);
+      all.appendChild(rev_e);
+      all.appendChild(rating_e);
+      let element = document.getElementById("list");
+      element.appendChild(all);
+    }
 }
 
 function process(text){
