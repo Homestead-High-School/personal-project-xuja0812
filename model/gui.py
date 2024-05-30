@@ -3,10 +3,11 @@ from new_model import model_data
 import re
 import re
 
-company = st.text_input("Enter a reviews link here", "Type here...")
-num = st.text_input("Enter # of reviews here", "Type here...")
+company = st.text_input("Enter a company name here", "Type here...")
+num = int(st.text_input("Enter # of reviews here", "Type here..."))
 if(st.button("Submit")):
-   result = model_data(company, num)
+   url = "https://www.facebook.com/"+company+"/reviews"
+   result = model_data(url, num)
    result_split = result.split("\n")
    printable = ""
    sum = 0.0
@@ -30,10 +31,6 @@ if(st.button("Submit")):
          rev += words[i] + " "
       sentiment = words[len(words)-1]
       printable += "\n" + name + "\n\n" + rec + "\n\n" + rev + "\n\n" + sentiment + "\n"
-      # st.success(name)
-      # st.success(rec)
-      # st.success(rev)
-   # st.success(result)
    avg = sum / len(result_split)
    printable = "THE AVERAGE SENTIMENT IS: " + str(avg) + "\n\n\n" + printable
    st.success(printable)

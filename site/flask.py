@@ -195,12 +195,13 @@ class SentimentAnalysis:
 
         return df.to_string(header=False, index=False)
 
-@app.route('/site', methods=['POST', 'GET'])
+@app.route('/product.html', methods=['POST', 'GET'])
 def site():
     text = ""
     d = ""
     # if request.method == 'POST':
         # f = request.form;
+    print("TEST")
     company = request.form.get('search')
     url = "https://www.facebook.com/" + company + "/reviews"
     sa = SentimentAnalysis()
