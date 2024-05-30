@@ -1,6 +1,7 @@
 import streamlit as st
 from new_model import model_data
 import re
+import re
 
 company = st.text_input("Enter a reviews link here", "Type here...")
 num = st.text_input("Enter # of reviews here", "Type here...")
