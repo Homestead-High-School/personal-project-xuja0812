@@ -69,7 +69,7 @@ def archive(driver, reviewList):
                     print("written:",index)
                     return index, r
 
-def scrape(url):
+def scrape(url, n):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
@@ -94,7 +94,9 @@ def scrape(url):
 
     # RETRIEVES ANY PAGE ONCE THE USER IS LOGGED IN
     time.sleep(5)
-    # driver.get('https://www.facebook.com/McDonalds/reviews')
+    # driver.get("https://www.facebook.com/McDonalds/reviews")
+    print("url:",url)
+    print('https://www.facebook.com/McDonalds/reviews')
     driver.get(url)
     time.sleep(5)
 
@@ -102,7 +104,7 @@ def scrape(url):
     count = 0
     switch = True
     old_numReviews = 0
-    numberReviews = 10
+    numberReviews = n
 
     index = 0
     r = 0
@@ -110,6 +112,8 @@ def scrape(url):
     while(switch):
 
         print("hello")
+        print("url:",url)
+        print("https://www.facebook.com/McDonalds/reviews")
         
         openSeeMore(driver) 
         getBack(driver)
@@ -145,7 +149,7 @@ def scrape(url):
         else:
             ratings.append("does not recommend")
 
-        users.append(r.find('a',{'class':'x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xzsf02u x1s688f'}).get_text().strip())
+        users.append(r.find('a',{'class':'x1i10hfl xjbqb8w x1ejq31n xd10rxx x1sy0etr x17r0tee x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xt0psk2 xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r xexx8yu x4uap5 x18d9i69 xkhd6sd x16tdsg8 x1hl2dhg xggy1nq x1a2a7pz x1sur9pj xkrqix3 xzsf02u x1s688f'}).get_text().strip().split(" ")[0])
         
         text = r.find('span',{'class':'x193iq5w xeuugli x13faqbe x1vvkbs x1xmvt09 x1lliihq x1s928wv xhkezso x1gmr53x x1cpjm7i x1fgarty x1943h6x xudqn12 x3x7a5m x6prxxf xvq8zen xo1l8bm xzsf02u x1yc453h'})
         if text is not None:
