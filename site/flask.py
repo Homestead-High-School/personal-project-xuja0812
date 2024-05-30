@@ -195,7 +195,7 @@ class SentimentAnalysis:
 
         return df.to_string(header=False, index=False)
 
-@app.route('/product.html', methods=['POST', 'GET'])
+@app.route('/site', methods=['POST', 'GET'])
 def site():
     text = ""
     d = ""
